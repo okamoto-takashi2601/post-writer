@@ -9,7 +9,6 @@ import { useEffect, useState, useCallback,useRef } from "react";
 import Header from '@editorjs/header';
 import LinkTool from '@editorjs/link';
 import List from '@editorjs/list';
-import ImageTool from '@editorjs/image';
 import CodeTool from '@editorjs/code';
 import { Post } from "@prisma/client";
 import { useForm } from "react-hook-form";
@@ -43,7 +42,6 @@ export default function Editor({ post } : EditorProps){
                 header : Header, 
                 linkTool : LinkTool,
                 list : List,
-                Image : ImageTool,
                 Code : CodeTool,
             }
         })
