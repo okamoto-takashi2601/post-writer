@@ -45,9 +45,9 @@ export async function PATCH(req: NextRequest, context:z.infer<typeof routeContex
 export async function DELETE(req: NextRequest, context:z.infer<typeof routeContextSchema>) {
     try{
         const { params }= routeContextSchema.parse(context);
-        // if( await verifyCurrentUserHasAccessToPost(params.postId)){
-        //     return NextResponse.json(null, { status : 403})
-        // }
+        if( await verifyCurrentUserHasAccessToPost(params.postId)){
+            return NextResponse.json(null, { status : 403})
+        }
 
        await db.post.delete({
            where: {

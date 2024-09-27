@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
-interface DashBoardShellProps extends React.HTMLAttributes<HTMLDivElement> {}
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+interface DashBoardShellProps  extends React.HTMLAttributes<HTMLDivElement> {}
 
 export default function DashBoardShell({ 
     children , 

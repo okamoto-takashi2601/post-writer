@@ -39,6 +39,7 @@ async function deletePost(postId:string) {
             description : "記事の削除できませんでした。もう一度トライしてください",
             variant : "destructive"
         })
+        console.log(err)
     }
 }
 export default function PostOperations({post } : PostOperationsProps){

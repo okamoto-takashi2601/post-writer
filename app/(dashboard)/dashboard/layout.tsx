@@ -1,6 +1,4 @@
 import React from "react";
-import Link from "next/link";
-import { cn } from "@/lib/utils";
 import MainNav from "@/components/main-nav";
 import SiteFooter from "@/components/site-footer";
 import { dashboardConfig } from "@/config/dashboard";

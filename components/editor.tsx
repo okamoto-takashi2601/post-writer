@@ -64,7 +64,7 @@ export default function Editor({ post } : EditorProps){
             ref.current = undefined;
         }
     },[isMounted]);
-
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { register, handleSubmit, formState : { errors }} = useForm<postPatchSchemaType>({
         resolver: zodResolver(postPatchSchema)
     })

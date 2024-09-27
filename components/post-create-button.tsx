@@ -6,16 +6,17 @@ import { useState } from "react"
 import { Icon } from "./icon"
 import { useRouter } from "next/navigation"
 import { useToast } from "@/hooks/use-toast"
-
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface PostCreateButtonProps extends ButtonProps {}
 
 export default function PostCreateButton( { className, variant, ...props} : PostCreateButtonProps){
     const router = useRouter()
     const [isLoading, setIsLoading] = useState(false);
-
-    const onClick = async () => {
+    const { toast } = useToast()
+    
+    async function handleClick() {
         setIsLoading(true);
-        const response = await fetch("api/posts",{
+        const response = await fetch("/api/posts",{
             method : "POST",
             headers : {
                 "Content-Type" : "application/json",
@@ -28,8 +29,7 @@ export default function PostCreateButton( { className, variant, ...props} : Post
         setIsLoading(false);
 
         if(!response.ok){
-            const { toast } = useToast()
-            return toast({
+            toast({
                 title : "問題が発生しました",
                 description: "投稿が作成できませんでした。もう一度お試しください",
                 variant : "destructive"
@@ -46,7 +46,7 @@ export default function PostCreateButton( { className, variant, ...props} : Post
                     { "cursor-not-allowed opacity-60" : isLoading },
                     className)
                   } 
-        onClick={onClick}
+        onClick={handleClick}
         disabled = {isLoading}
         {...props}
         >
